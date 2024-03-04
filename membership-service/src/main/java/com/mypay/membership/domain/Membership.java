@@ -1,4 +1,4 @@
-package org.mypay.membership.domain;
+package com.mypay.membership.domain;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
