@@ -6,9 +6,11 @@ import com.mypay.membership.application.port.in.RegisterMembershipCommand;
 import com.mypay.membership.application.port.in.RegisterMembershipUseCase;
 import com.mypay.membership.application.port.out.RegisterMembershipPort;
 import com.mypay.membership.domain.Membership;
+import common.UseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.transaction.annotation.Transactional;
 
+@UseCase
 @RequiredArgsConstructor
 @Transactional
 public class RegisterMembershipService implements RegisterMembershipUseCase {
