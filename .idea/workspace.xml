@@ -10,11 +10,6 @@
       <change afterPath="$PROJECT_DIR$/../../Illunex/test/src/main/java/org/example/ProgrammersAssignmentApiServerDev.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Illunex/test/src/main/java/org/example/Test.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../Illunex/test/src/main/java/org/example/user/input/user.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/membership-service/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/membership-service/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/membership-service/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/membership-service/src/main/java/com/mypay/membership/application/port/in/RegisterMembershipUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/membership-service/src/main/java/com/mypay/membership/application/port/in/RegisterMembershipUseCase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/membership-service/src/main/java/com/mypay/membership/application/service/RegisterMembershipService.java" beforeDir="false" afterPath="$PROJECT_DIR$/membership-service/src/main/java/com/mypay/membership/application/service/RegisterMembershipService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../example/example.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../example/test/test.java" beforeDir="false" />
     </list>
@@ -248,7 +243,7 @@
       <workItem from="1695939719791" duration="6000" />
       <workItem from="1709045387726" duration="3091000" />
       <workItem from="1709283848421" duration="8773000" />
-      <workItem from="1709447603087" duration="6689000" />
+      <workItem from="1709447603087" duration="6994000" />
     </task>
     <servers />
   </component>
