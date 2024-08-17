@@ -5,16 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab55d1f3-62b5-4cb4-b2fd-42bb6502aa9c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/membership-service/src/main/java/com/mypay/membership/adapter/in/web/FindMembershipController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/membership-service/src/main/java/com/mypay/membership/adapter/in/web/FindMembershipRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/membership-service/src/main/java/com/mypay/membership/application/port/in/FindMembershipCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/membership-service/src/main/java/com/mypay/membership/application/port/in/FindMembershipUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/membership-service/src/main/java/com/mypay/membership/application/port/out/FindMembershipPort.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/membership-service/src/main/java/com/mypay/membership/application/service/FindMembershipService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/aws.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/membership-service/src/main/java/com/mypay/membership/adapter/out/persistence/MembershipPersistenceAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/membership-service/src/main/java/com/mypay/membership/adapter/out/persistence/MembershipPersistenceAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -255,7 +247,7 @@
       <workItem from="1712378010032" duration="598000" />
       <workItem from="1712588886367" duration="766000" />
       <workItem from="1723560170114" duration="8579000" />
-      <workItem from="1723651191656" duration="2098000" />
+      <workItem from="1723651191656" duration="10592000" />
     </task>
     <servers />
   </component>
