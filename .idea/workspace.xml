@@ -5,16 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab55d1f3-62b5-4cb4-b2fd-42bb6502aa9c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/images/MSA_My_Pay_아키텍처.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/MSA_가용성_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/MSA_서비스_식별.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/MSA_스트랭글러_패턴.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/MSA_스트랭글러_패턴_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/MSA_스트랭글러_패턴_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/MSA_통합글루.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/membership-service/src/test/java/com/mypay/membership/adapter/in/web/RegisterMembershipControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/membership-service/src/main/java/com/mypay/membership/adapter/out/persistence/MembershipPersistenceAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/membership-service/src/main/java/com/mypay/membership/adapter/out/persistence/MembershipPersistenceAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/membership-service/src/main/java/com/mypay/membership/application/port/out/RegisterMembershipPort.java" beforeDir="false" afterPath="$PROJECT_DIR$/membership-service/src/main/java/com/mypay/membership/application/port/out/RegisterMembershipPort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/membership-service/src/main/java/com/mypay/membership/application/service/RegisterMembershipService.java" beforeDir="false" afterPath="$PROJECT_DIR$/membership-service/src/main/java/com/mypay/membership/application/service/RegisterMembershipService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +51,7 @@
         <option value="AnnotationType" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -82,7 +79,9 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Application.Main.executor": "Run",
+    "Gradle.Build MyPay.executor": "Run",
     "Gradle.MyPay [dependencies].executor": "Run",
+    "JUnit.RegisterMembershipControllerTest.testRegisterMembership.executor": "Debug",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -95,6 +94,8 @@
     "Spring Boot.TestApplication (1).executor": "Run",
     "Spring Boot.TestApplication.executor": "Run",
     "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "jdk.selected.JAVA_MODULE": "11",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/seongjin/Desktop/oliver/programming/MSA-FastCampus/MyPay",
@@ -107,13 +108,19 @@
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.0",
     "run.configurations.included.in.services": "true",
-    "settings.editor.selected.configurable": "http.proxy",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/membership-service/src/main/java/org/mypay/membership" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.mypay.membership.adapter.in.web" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="common" />
@@ -128,20 +135,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.MembershipApplication (1)">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.Main" />
-      <module name="MyPay.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.RegisterMembershipControllerTest.testRegisterMembership">
     <configuration name="MyPay [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -163,6 +157,22 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <RunAsTest>false</RunAsTest>
       <method v="2" />
+    </configuration>
+    <configuration name="RegisterMembershipControllerTest.testRegisterMembership" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MyPay.membership-service.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.mypay.membership.adapter.in.web.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.mypay.membership.adapter.in.web" />
+      <option name="MAIN_CLASS_NAME" value="com.mypay.membership.adapter.in.web.RegisterMembershipControllerTest" />
+      <option name="METHOD_NAME" value="testRegisterMembership" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="MembershipApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="MyPay.membership-service.main" />
@@ -209,19 +219,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Main" />
       <item itemvalue="Gradle.MyPay [dependencies]" />
+      <item itemvalue="JUnit.RegisterMembershipControllerTest.testRegisterMembership" />
       <item itemvalue="Spring Boot.MembershipApplication (1)" />
       <item itemvalue="Spring Boot.MembershipApplication" />
       <item itemvalue="Spring Boot.TestApplication" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RegisterMembershipControllerTest.testRegisterMembership" />
         <item itemvalue="Spring Boot.MembershipApplication (1)" />
         <item itemvalue="Spring Boot.MembershipApplication" />
         <item itemvalue="Spring Boot.TestApplication" />
         <item itemvalue="Gradle.MyPay [dependencies]" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -255,7 +265,7 @@
       <workItem from="1712378010032" duration="598000" />
       <workItem from="1712588886367" duration="766000" />
       <workItem from="1723560170114" duration="8579000" />
-      <workItem from="1723651191656" duration="25999000" />
+      <workItem from="1723651191656" duration="29745000" />
     </task>
     <servers />
   </component>
@@ -265,8 +275,39 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/membership-service/src/test/java/com/mypay/membership/adapter/in/web/RegisterMembershipControllerTest.java</url>
+          <line>47</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/membership-service/src/test/java/com/mypay/membership/adapter/in/web/RegisterMembershipControllerTest.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/membership-service/src/main/java/com/mypay/membership/adapter/in/web/RegisterMembershipController.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/membership-service/src/main/java/com/mypay/membership/application/service/RegisterMembershipService.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/MyPay$RegisterMembershipControllerTest_testRegisterMembership.ic" NAME="RegisterMembershipControllerTest.testRegisterMembership Coverage Results" MODIFIED="1723984021223" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.mypay.membership.adapter.in.web.*</FILTER>
+    </SUITE>
   </component>
 </project>

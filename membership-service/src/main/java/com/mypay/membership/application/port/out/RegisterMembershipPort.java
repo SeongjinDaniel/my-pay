@@ -7,8 +7,8 @@ public interface RegisterMembershipPort {
 
     MembershipJpaEntity createMembership(
         Membership.MembershipName membershipName
-        , Membership.MembershipEmail membershipEmail
         , Membership.MembershipAddress membershipAddress
+        , Membership.MembershipEmail membershipEmail
         , Membership.MembershipIsValid membershipIsValid
         , Membership.MembershipIsCorp membershipIsCorp
     );

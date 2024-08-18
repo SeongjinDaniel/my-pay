@@ -15,12 +15,12 @@ public class MembershipPersistenceAdapter implements RegisterMembershipPort, Fin
     private final MembershipMapper membershipMapper;
 
     @Override
-    public MembershipJpaEntity createMembership(Membership.MembershipName membershipName, Membership.MembershipEmail membershipEmail, Membership.MembershipAddress membershipAddress, Membership.MembershipIsValid membershipIsValid, Membership.MembershipIsCorp membershipIsCorp) {
+    public MembershipJpaEntity createMembership(Membership.MembershipName membershipName, Membership.MembershipAddress membershipAddress, Membership.MembershipEmail membershipEmail, Membership.MembershipIsValid membershipIsValid, Membership.MembershipIsCorp membershipIsCorp) {
         return membershipRepository.save(
             new MembershipJpaEntity(
                 membershipName.getNameValue(),
-                membershipEmail.getEmailValue(),
                 membershipAddress.getAddressValue(),
+                membershipEmail.getEmailValue(),
                 membershipIsValid.isValidValue(),
                 membershipIsCorp.isCorpValue()
             )
