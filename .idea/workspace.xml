@@ -5,6 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab55d1f3-62b5-4cb4-b2fd-42bb6502aa9c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/images/MSA_My_Pay_아키텍처.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/MSA_가용성_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/MSA_서비스_식별.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/MSA_스트랭글러_패턴.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/MSA_스트랭글러_패턴_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/MSA_스트랭글러_패턴_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/MSA_통합글루.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
@@ -247,7 +255,7 @@
       <workItem from="1712378010032" duration="598000" />
       <workItem from="1712588886367" duration="766000" />
       <workItem from="1723560170114" duration="8579000" />
-      <workItem from="1723651191656" duration="10592000" />
+      <workItem from="1723651191656" duration="25999000" />
     </task>
     <servers />
   </component>
