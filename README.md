@@ -412,3 +412,5 @@ DDD(Domain Driven Design) 기반, 분해지침에 따른 서비스 식별/분리
 - 도메인 모델 간의 상호 관계와, 이들이 어떤 "작업"을 해야할 지를 구체적이고 상세하게 정의
 
 Business - 분리/분해/통합 ----> Micro Service
+
+여기까지가 practice1 코드 커밋을 위한 문구
