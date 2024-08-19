@@ -413,4 +413,19 @@ DDD(Domain Driven Design) 기반, 분해지침에 따른 서비스 식별/분리
 
 Business - 분리/분해/통합 ----> Micro Service
 
-여기까지가 practice1 코드 커밋을 위한 문구
+
+## Application Dockerizing
+### 마이페이회원정보 변경 기능 추가, Dockerizing
+- Docker는 어떤 역할을 해주는 지 학습
+  - 일반적인 CI/CD 과정에서의 Dockerizing
+  - 마이 페이에서의 Dockerizing
+
+### Dockerizing
+- 어플리케이션을 docker build 를 통해 image 로 만드는 작업.(Containerizing)
+- 일반적으로 Dockerfile 이라는 파일에, image 를 빌드하는 일련의 작업을 정의
+
+**장점**: 운영 체제와 하드웨어에 독립적(JVM)//환경 일관성//격리성//빠른 배포와 롤백 가능
+**단점**: 러닝 커브//docker 라는 추가적인 리소스//보안 이슈//이미지 크기 최적화 어려움
+
+- 일반적인 CI/CD 과정에서의 Dockerizing
+  - 코드 푸시 -> CI(Continuous Integration) 현재 추세는 build 뿐만아니라 image 까지 만듦,, -> CD(Continuous Deployment)

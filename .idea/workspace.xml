@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab55d1f3-62b5-4cb4-b2fd-42bb6502aa9c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/membership-service/src/test/java/com/mypay/membership/adapter/in/web/RegisterMembershipControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/membership-service/src/main/java/com/mypay/membership/adapter/out/persistence/MembershipPersistenceAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/membership-service/src/main/java/com/mypay/membership/adapter/out/persistence/MembershipPersistenceAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/membership-service/src/main/java/com/mypay/membership/application/port/out/RegisterMembershipPort.java" beforeDir="false" afterPath="$PROJECT_DIR$/membership-service/src/main/java/com/mypay/membership/application/port/out/RegisterMembershipPort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/membership-service/src/main/java/com/mypay/membership/application/service/RegisterMembershipService.java" beforeDir="false" afterPath="$PROJECT_DIR$/membership-service/src/main/java/com/mypay/membership/application/service/RegisterMembershipService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,12 +26,51 @@
         <task path="$PROJECT_DIR$/membership-service">
           <activation />
         </task>
+        <task path="$PROJECT_DIR$/common">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="MyPay" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="MyPay" type="f1a62948:ProjectNode" />
+                <item name="common" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="MyPay" type="f1a62948:ProjectNode" />
+                <item name="common" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="MyPay" type="f1a62948:ProjectNode" />
+                <item name="common" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="MyPay" type="f1a62948:ProjectNode" />
+                <item name="membership-service" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="MyPay" type="f1a62948:ProjectNode" />
+                <item name="membership-service" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="MyPay" type="f1a62948:ProjectNode" />
+                <item name="membership-service" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -50,14 +84,31 @@
       <list>
         <option value="AnnotationType" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="practice1" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "SeongjinDaniel"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/SeongjinDaniel/my-pay.git",
+    "accountId": "d61a166c-bcac-4da1-9e8e-7a308e3695bc"
+  }
+}]]></component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
 }</component>
@@ -81,7 +132,9 @@
     "Application.Main.executor": "Run",
     "Gradle.Build MyPay.executor": "Run",
     "Gradle.MyPay [dependencies].executor": "Run",
-    "JUnit.RegisterMembershipControllerTest.testRegisterMembership.executor": "Debug",
+    "Gradle.MyPay:common [clean].executor": "Run",
+    "Gradle.MyPay:membership-service [clean].executor": "Run",
+    "JUnit.RegisterMembershipControllerTest.testRegisterMembership.executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -96,9 +149,10 @@
     "WebServerToolWindowFactoryState": "false",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "practice2",
     "jdk.selected.JAVA_MODULE": "11",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/seongjin/Desktop/oliver/programming/MSA-FastCampus/MyPay",
+    "last_opened_file_path": "/Users/seongjin/Desktop/oliver/programming/MSA-FastCampus/MyPay/common/src/main/java/org/mypay/common",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -114,6 +168,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/common/src/main/java/org/mypay/common" />
       <recent name="$PROJECT_DIR$/membership-service/src/main/java/org/mypay/membership" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
@@ -123,6 +178,9 @@
       <recent name="com.mypay.membership.adapter.in.web" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.mypay.membership.application.port.out" />
+      <recent name="com.mypay.membership.application.port.in" />
+      <recent name="com.mypay.membership.adapter.in.web" />
       <recent name="common" />
     </key>
   </component>
@@ -135,11 +193,11 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.RegisterMembershipControllerTest.testRegisterMembership">
-    <configuration name="MyPay [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.MyPay:common [clean]">
+    <configuration name="MyPay:common [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/common" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" />
         <option name="taskDescriptions">
@@ -147,7 +205,29 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="dependencies" />
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="MyPay:membership-service [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/membership-service" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -170,6 +250,19 @@
       <option name="MAIN_CLASS_NAME" value="com.mypay.membership.adapter.in.web.RegisterMembershipControllerTest" />
       <option name="METHOD_NAME" value="testRegisterMembership" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="MyPay" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="MyPay" />
+      <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -205,41 +298,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="MyPay.main" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="org.example.TestApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
-      <item itemvalue="Gradle.MyPay [dependencies]" />
+      <item itemvalue="Gradle.MyPay:common [clean]" />
+      <item itemvalue="Gradle.MyPay:membership-service [clean]" />
       <item itemvalue="JUnit.RegisterMembershipControllerTest.testRegisterMembership" />
       <item itemvalue="Spring Boot.MembershipApplication (1)" />
       <item itemvalue="Spring Boot.MembershipApplication" />
-      <item itemvalue="Spring Boot.TestApplication" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.RegisterMembershipControllerTest.testRegisterMembership" />
+        <item itemvalue="Gradle.MyPay:common [clean]" />
+        <item itemvalue="Gradle.MyPay:membership-service [clean]" />
         <item itemvalue="Spring Boot.MembershipApplication (1)" />
+        <item itemvalue="JUnit.RegisterMembershipControllerTest.testRegisterMembership" />
         <item itemvalue="Spring Boot.MembershipApplication" />
-        <item itemvalue="Spring Boot.TestApplication" />
-        <item itemvalue="Gradle.MyPay [dependencies]" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17011.79" />
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17011.79" />
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.20224.300" />
+        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-IU-242.20224.300" />
       </set>
     </attachedChunks>
   </component>
@@ -266,11 +346,23 @@
       <workItem from="1712588886367" duration="766000" />
       <workItem from="1723560170114" duration="8579000" />
       <workItem from="1723651191656" duration="29745000" />
+      <workItem from="1724018987249" duration="9609000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -290,7 +382,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/membership-service/src/main/java/com/mypay/membership/adapter/in/web/RegisterMembershipController.java</url>
-          <line>24</line>
+          <line>22</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
