@@ -1,7 +1,7 @@
 plugins {
-    id 'java'
-    id 'org.springframework.boot' version '2.5.2'
+    id 'com.palantir.docker' version '0.25.0'
 }
+
 ext{
     axonVersion = "4.6.0"
 }
@@ -23,7 +23,21 @@ dependencies {
 
     testImplementation 'junit:junit:4.13.1'
     runtimeOnly 'com.h2database:h2'
-    runtimeOnly 'mysql:mysql-connector-java'
+
+//    runtimeOnly 'mysql:mysql-connector-java'
 //    implementation group: 'org.axonframework', name: 'axon-configuration', version: "$axonVersion"
 //    implementation group: 'org.axonframework', name: 'axon-spring-boot-starter', version: "$axonVersion"
+}
+
+docker {
+    // println 은 디버깅용
+    println(tasks.bootJar.outputs.files)
+    // 이미지 이름
+    name rootProject.name + '-' + project.name + ":" + version
+    // 어떤 Dockerfile
+    dockerfile file('./Dockerfile')
+    // 어떤 파일들을 Dockerfile에 복사할 것인가
+    files tasks.bootJar.outputs.files
+    // Dockerfile 에 전달할 인자
+    buildArgs(['JAR_FILE': tasks.bootJar.outputs.files.singleFile.name])
 }

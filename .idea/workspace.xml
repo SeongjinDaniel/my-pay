@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab55d1f3-62b5-4cb4-b2fd-42bb6502aa9c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/membership-service/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/membership-service/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/membership-service/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,6 +135,7 @@
     "Application.Main.executor": "Run",
     "Gradle.Build MyPay.executor": "Run",
     "Gradle.MyPay [dependencies].executor": "Run",
+    "Gradle.MyPay [docker].executor": "Run",
     "Gradle.MyPay:common [clean].executor": "Run",
     "Gradle.MyPay:membership-service [clean].executor": "Run",
     "JUnit.RegisterMembershipControllerTest.testRegisterMembership.executor": "Run",
@@ -193,7 +197,29 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.MyPay:common [clean]">
+  <component name="RunManager" selected="Gradle.MyPay [docker]">
+    <configuration name="MyPay [docker]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="docker" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
     <configuration name="MyPay:common [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -255,13 +281,13 @@
       </method>
     </configuration>
     <configuration default="true" type="JetRunConfigurationType">
-      <module name="MyPay" />
+      <module name="my-pay" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="MyPay" />
+      <module name="my-pay" />
       <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -280,38 +306,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MembershipApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="MyPay.membership-service.main" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="org.mypay.membership.MembershipApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.mypay.membership.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <extension name="software.aws.toolkits.jetbrains.core.execution.JavaAwsConnectionExtension">
-        <option name="credential" />
-        <option name="region" />
-        <option name="useCurrentConnection" value="false" />
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
+      <item itemvalue="Gradle.MyPay [docker]" />
       <item itemvalue="Gradle.MyPay:common [clean]" />
       <item itemvalue="Gradle.MyPay:membership-service [clean]" />
       <item itemvalue="JUnit.RegisterMembershipControllerTest.testRegisterMembership" />
       <item itemvalue="Spring Boot.MembershipApplication (1)" />
-      <item itemvalue="Spring Boot.MembershipApplication" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.MyPay [docker]" />
         <item itemvalue="Gradle.MyPay:common [clean]" />
         <item itemvalue="Gradle.MyPay:membership-service [clean]" />
         <item itemvalue="Spring Boot.MembershipApplication (1)" />
         <item itemvalue="JUnit.RegisterMembershipControllerTest.testRegisterMembership" />
-        <item itemvalue="Spring Boot.MembershipApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -346,7 +354,7 @@
       <workItem from="1712588886367" duration="766000" />
       <workItem from="1723560170114" duration="8579000" />
       <workItem from="1723651191656" duration="29745000" />
-      <workItem from="1724018987249" duration="9609000" />
+      <workItem from="1724018987249" duration="10677000" />
     </task>
     <servers />
   </component>
