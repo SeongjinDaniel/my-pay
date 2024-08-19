@@ -1,13 +1,12 @@
 package com.mypay.membership.application.port.in;
 
-import common.SelfValidating;
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
+import com.mypay.common.SelfValidating;
 import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Builder
 @Data

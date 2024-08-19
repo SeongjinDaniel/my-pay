@@ -1,12 +1,12 @@
 package com.mypay.membership.application.service;
 
+import com.mypay.common.UseCase;
 import com.mypay.membership.adapter.out.persistence.MembershipJpaEntity;
 import com.mypay.membership.adapter.out.persistence.MembershipMapper;
 import com.mypay.membership.application.port.in.RegisterMembershipCommand;
 import com.mypay.membership.application.port.in.RegisterMembershipUseCase;
 import com.mypay.membership.application.port.out.RegisterMembershipPort;
 import com.mypay.membership.domain.Membership;
-import common.UseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.transaction.annotation.Transactional;
 

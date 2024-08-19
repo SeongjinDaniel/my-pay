@@ -1,5 +1,6 @@
 package com.mypay.membership.adapter.out.persistence;
 
+import com.mypay.common.PersistenceAdapter;
 import com.mypay.membership.application.port.out.FindMembershipPort;
 import com.mypay.membership.application.port.out.ModifyMembershipPort;
 import com.mypay.membership.application.port.out.RegisterMembershipPort;
@@ -10,7 +11,6 @@ import com.mypay.membership.domain.Membership.MembershipId;
 import com.mypay.membership.domain.Membership.MembershipIsCorp;
 import com.mypay.membership.domain.Membership.MembershipIsValid;
 import com.mypay.membership.domain.Membership.MembershipName;
-import common.PersistenceAdapter;
 import lombok.RequiredArgsConstructor;
 
 @PersistenceAdapter

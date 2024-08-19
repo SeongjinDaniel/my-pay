@@ -1,6 +1,6 @@
 package com.mypay.membership.application.port.in;
 
-import common.SelfValidating;
+import com.mypay.common.SelfValidating;
 import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
