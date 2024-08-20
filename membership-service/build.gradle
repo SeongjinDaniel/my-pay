@@ -8,7 +8,7 @@ ext{
 
 
 group = 'com.mypay.membership'
-version = '1.0.0'
+version = '1.0.1'
 
 
 dependencies {
@@ -22,9 +22,8 @@ dependencies {
     implementation project(path: ':common')
 
     testImplementation 'junit:junit:4.13.1'
-    runtimeOnly 'com.h2database:h2'
-
-//    runtimeOnly 'mysql:mysql-connector-java'
+//    runtimeOnly 'com.h2database:h2'
+    runtimeOnly 'mysql:mysql-connector-java'
 //    implementation group: 'org.axonframework', name: 'axon-configuration', version: "$axonVersion"
 //    implementation group: 'org.axonframework', name: 'axon-spring-boot-starter', version: "$axonVersion"
 }
@@ -35,7 +34,7 @@ docker {
     // 이미지 이름
     name rootProject.name + '-' + project.name + ":" + version
     // 어떤 Dockerfile
-    dockerfile file('./Dockerfile')
+    dockerfile file('../Dockerfile')
     // 어떤 파일들을 Dockerfile에 복사할 것인가
     files tasks.bootJar.outputs.files
     // Dockerfile 에 전달할 인자

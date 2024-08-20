@@ -429,3 +429,13 @@ Business - 분리/분해/통합 ----> Micro Service
 
 - 일반적인 CI/CD 과정에서의 Dockerizing
   - 코드 푸시 -> CI(Continuous Integration) 현재 추세는 build 뿐만아니라 image 까지 만듦,, -> CD(Continuous Deployment)
+
+## docker-compose 로 실행
+### Docker-compose
+- docker image들을 이용해서, 여러개의 컨테이너를 실행하고 이 컨테이너들의 관리를 위한 도구
+- 여러 컨테이너로 구성된 복잡한 애플리케이션 환경을 관리해 주는 도구
+- 주로 docker-compose.yml 파일에 정의를 하고, 네트워크, 볼륨 등을 정의하여 한번에 여러 컨테이너를 실행
+
+여러 어플리케이션을 image로 만들고, 이 image 들을 Local (1 Computer) 환경에서 실행할 수 있도록 지원.
+
+**"제한된 환경에서 MSA 환경을 구성해 보고 학습하는데 있어서 적절한 도구"**
