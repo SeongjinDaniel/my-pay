@@ -439,3 +439,50 @@ Business - 분리/분해/통합 ----> Micro Service
 여러 어플리케이션을 image로 만들고, 이 image 들을 Local (1 Computer) 환경에서 실행할 수 있도록 지원.
 
 **"제한된 환경에서 MSA 환경을 구성해 보고 학습하는데 있어서 적절한 도구"**
+
+## 뱅킹 서비스 정의 하기, 도메인 모셀 설계하기
+### 뱅킹 서비스 정의
+- 외부 은행과의 직접적인 통신을 담당하고, 펌뱅킹 계약이나 수수료 관리 등 외부 은행 사용과 관련되 모든 기능을 제공하는 서비스
+  - A 계좌로부터 출금하여, B 계좌로 입금을 하라는 요청을 받아서, 은행망으로 펌뱅킹 명령 송신
+  - 현재 계약 되어있는 은행들의 상태와 만료 기간 등을 관리
+  - 모든 펌뱅킹 명령에 대해서 기록하고, 정상적으로 완료된 명령들의 수수료 계산
+  - 특정 계좌가 정상 상태인지 체크하는 요청 지원
+
+![MSA_뱅킹_도메인_모델_정의하기.png](images/MSA_뱅킹_도메인_모델_정의하기.png)
+- To Target은 회원, 외부 인행계좌일 수 있다.
+- From Target은 항상 회원이다.
+계좌연동, 펌뱅킹
+
+![MSA_MVP.png](images/MSA_MVP.png)
+- **뱅킹을 연동하지 않고 이정도를 MVP로 계획한다.**
+- 외부 은행과 입/출금 요청 펌뱅킹 통신을 담당하고, 내부 고객의 계좌 정보를 등록하는 서비스
+
+### 뱅킹 서비스 패키지 설계, API 식별
+#### 도메인 모델기반, 모델 객체 식별해보기
+**"계좌 연동"**
+- RegisteredBankAccount (고객의 등록된 계좌)
+- RegisteredBankAccountHistory
+**"펌뱅킹 관련""**
+- RequestFirmbanking (받는사람, 보내는사람(은행정보), 금액, 시간)
+- RequestFirmbankingHistory
+- BankAccount (외부 은행 수많은 정보, 개설, 폐쇄, 세금)
+
+#### API 설계
+##### Query
+- 입금/출금 요청(펌뱅킹) 내역 조회
+  - find - FirmBankingInfo ( -by-membershipId)
+  - Request: membershipId
+  - Response: Firmbanking Object
+- 고객의 연동된 계좌 (고객 계좌 연동정보) 조회
+  - find - RegisteredBankAccount(-by-membershipId)
+    - Request: membershipId
+    - Response: RegisteredBankAccount Object
+##### Command
+- 고객 정보에 대해 요청된 Account 정보를 매핑, 연동
+  - register-BankAccount(-with-membershipId)
+    - Request: membershipId, BankAccount
+    - Response: RegisteredBankAccount Object
+- 실제 실물 계좌에서의 입/출금을 요청하는 펌뱅킹을 요청, 수행
+  - request - Firmbanking - (-to Remittance)-(-with BankAccount)
+    - Request: from Bank Account, to Bank Account, Money
+    - Response: RequestFirmbankingUUID
