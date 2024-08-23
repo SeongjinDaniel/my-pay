@@ -499,7 +499,7 @@ Business - 분리/분해/통합 ----> Micro Service
     - Request: membershipId
     - Response: Firmbanking Object
 
-#### 머니 서비스 정의
+### 머니 서비스 정의
 - 고객의 선불 충전 금액(머니)을 관리하고, 이에 대해 다양한 쿼리를 제공할 수 있는 서비스
 - 특정 고객의 선불 충전금액(마이 머니)를 관리(증액, 감액)
 - 고객의 마이 머니 변동 Command 관리, 정합성 유지
@@ -510,3 +510,30 @@ Business - 분리/분해/통합 ----> Micro Service
   - 고객의 선불 충전 금액(머니)을 관리하고, 이에 대해 다양한 쿼리를 제공할 수 있는 서비스
 - Money Service MVP Version (머니 서비스, Minimal Viable Product)
   - 고객의 선불 충전 금액 마이머니의 증액/감액을 담당, 기록
+#### 머니 서비스 패키지 설계, API 식별
+도메인 모델기반, 모델 객체 식별해보기
+**"머니 관련"**:"머니 증액(충전)/감액 관련"
+- MemberMoney:IncreaseMoneyRequest(실물계좌->법인계좌로현금이동)
+- LinkedBankAccount:DecreaseMoneyRequest(송금시 사용 예정)
+- //엄밀히는 Bank Service의 Data:MoneyChangingResultDetail
+- //Money의 입장에서 "연동 되었다" 의미 한정필요:MoneyChangingHistory
+**Money Service MVP Version(머니 서비스, Minimal Viable Product)**
+- 외부 은행과 입/출금 요청 펌뱅킹 통신을 담당하고, 기록하는 서비스
+#### Query
+- 고객의 머니 변동(입/출금, 증액/감액) 내역 조회
+  - find-MoneyChaningHistory (-by-membershipId)
+    - **Request**: membershipId
+    - **Response**: MoneyChaningHistory Object
+  - 고객의 머니 잔액 정보, 계좌 연동 정보 조회
+    - find-MemberMoney (-by-membershipId)
+      - **Request**: membershipId
+      - **Response**: MemberMoney Object 
+#### Command
+- 고객의 머니 변동(충전-증액) 요청
+  - request-MoneyChanging (-by-IncreaseMoneyRequest)
+    - **Request**: IncreaseMoneyRequest Object
+    - **Response**: MoneyChaningResultDetail Object
+- 고객의 머니 변동(감액) 요청  // 이후, 송금서비스에서 사용 예정
+  - register-MoneyChanging(-by-DecreaseMoneyRequest)
+    - **Request**: DecreaseMoneyRequest Object
+    - **Response**: MoneyChaningResultDetail Object
