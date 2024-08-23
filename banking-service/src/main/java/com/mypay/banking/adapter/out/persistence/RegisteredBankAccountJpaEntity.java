@@ -27,8 +27,7 @@ public class RegisteredBankAccountJpaEntity {
 
     private boolean linkedStatusIsValid;
 
-    public RegisteredBankAccountJpaEntity(String membershipId,
-        String bankName, String bankAccountNumber, boolean linkedStatusIsValid) {
+    public RegisteredBankAccountJpaEntity(String membershipId, String bankName, String bankAccountNumber, boolean linkedStatusIsValid) {
         this.membershipId = membershipId;
         this.bankName = bankName;
         this.bankAccountNumber = bankAccountNumber;

@@ -5,29 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab55d1f3-62b5-4cb4-b2fd-42bb6502aa9c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/banking-service/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/BankingApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/SwaggerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/adapter/in/web/RegisterBankAccountController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/adapter/in/web/RegisterBankAccountRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/adapter/out/external/bank/BankAccount.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/adapter/out/external/bank/BankAccountAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/adapter/out/external/bank/GetBankAccountRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/adapter/out/persistence/RegisteredBankAccountJpaEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/adapter/out/persistence/RegisteredBankAccountMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/adapter/out/persistence/RegisteredBankAccountPersistenceAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/adapter/out/persistence/SpringDataRegisteredAccountRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/application/port/in/RegisterBankAccountCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/application/port/in/RegisterBankAccountUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/application/port/out/RegisterBankAccountPort.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/application/port/out/RequestBankAccountInfoPort.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/application/service/RegisterBankAccountService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/domain/RegisteredBankAccount.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banking-service/src/test/java/com/mypay/banking/adapter/in/web/RegisterBankAccountControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/mypay/common/ExternalSystemAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/adapter/in/web/RequestFirmbankingController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/adapter/in/web/RequestFirmbankingRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/adapter/out/external/bank/ExternalFirmbankingRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/adapter/out/external/bank/FirmbankingResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/adapter/out/persistence/FirmbankingRequestJpaEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/adapter/out/persistence/FirmbankingRequestMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/adapter/out/persistence/FirmbankingRequestPersistenceAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/adapter/out/persistence/SpringDataFirmbankingRequestRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/application/port/in/RequestFirmBankingUseCase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/application/port/in/RequestFirmbankingCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/application/port/out/RequestExternalFirmbankingPort.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/application/port/out/RequestFirmbankingPort.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/application/service/RequestFirmbankingService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/domain/FirmbankingRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db/data/#innodb_redo/#ib_redo10" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db/data/binlog.000005" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db/data/my_pay/request_firmbanking.ibd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/adapter/out/external/bank/BankAccountAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/adapter/out/external/bank/BankAccountAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/adapter/out/persistence/RegisteredBankAccountJpaEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/adapter/out/persistence/RegisteredBankAccountJpaEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/data/#ib_16384_0.dblwr" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/#ib_16384_0.dblwr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/data/#innodb_redo/#ib_redo10_tmp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/db/data/#innodb_redo/#ib_redo9" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/#innodb_redo/#ib_redo9" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/data/#innodb_temp/temp_1.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/#innodb_temp/temp_1.ibt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/data/#innodb_temp/temp_10.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/#innodb_temp/temp_10.ibt" afterDir="false" />
@@ -39,19 +39,17 @@
       <change beforePath="$PROJECT_DIR$/db/data/#innodb_temp/temp_7.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/#innodb_temp/temp_7.ibt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/data/#innodb_temp/temp_8.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/#innodb_temp/temp_8.ibt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/data/#innodb_temp/temp_9.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/#innodb_temp/temp_9.ibt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/binlog.000003" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/binlog.000003" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/data/binlog.000004" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/binlog.000004" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/data/binlog.index" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/binlog.index" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/data/ib_buffer_pool" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/ib_buffer_pool" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/data/ibdata1" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/ibdata1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/data/ibtmp1" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/ibtmp1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/data/my_pay/hibernate_sequence.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/my_pay/hibernate_sequence.ibd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/data/my_pay/membership.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/my_pay/membership.ibd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/data/my_pay/registered_bank_account.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/my_pay/registered_bank_account.ibd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/data/mysql.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/mysql.ibd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/data/undo_001" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/undo_001" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/data/undo_002" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/undo_002" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/membership-service/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/membership-service/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,8 +103,8 @@
       <list>
         <option value="AnnotationType" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -178,7 +176,7 @@
     "WebServerToolWindowFactoryState": "false",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "practice2__from__bank",
+    "git-widget-placeholder": "main",
     "jdk.selected.JAVA_MODULE": "11",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/seongjin/Desktop/oliver/programming/MSA-FastCampus/my-pay/banking-service/src/main/java/com/mypay/banking",
@@ -219,11 +217,11 @@
       <recent name="com.mypay.membership.adapter.in.web" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.mypay.banking.application.port.out" />
+      <recent name="com.mypay.banking.adapter.out.persistence" />
+      <recent name="com.mypay.banking.application.port.in" />
+      <recent name="com.mypay.banking.adapter.in.web" />
       <recent name="com.mypay.common" />
-      <recent name="com.mypay.banking.adapter.out.external.bank" />
-      <recent name="com.mypay.membership.application.port.out" />
-      <recent name="com.mypay.membership.application.port.in" />
-      <recent name="com.mypay.membership.adapter.in.web" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -235,7 +233,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.RegisterBankAccountControllerTest.testRegisterBankAccount">
+  <component name="RunManager" selected="Spring Boot.BankingApplication">
     <configuration name="MyPay:common [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -344,8 +342,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.RegisterBankAccountControllerTest.testRegisterBankAccount" />
         <item itemvalue="Spring Boot.BankingApplication" />
+        <item itemvalue="JUnit.RegisterBankAccountControllerTest.testRegisterBankAccount" />
         <item itemvalue="Spring Boot.MembershipApplication (1)" />
         <item itemvalue="Gradle.MyPay:membership-service [clean]" />
         <item itemvalue="Gradle.MyPay:common [clean]" />

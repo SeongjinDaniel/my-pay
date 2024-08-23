@@ -486,3 +486,15 @@ Business - 분리/분해/통합 ----> Micro Service
   - request - Firmbanking - (-to Remittance)-(-with BankAccount)
     - Request: from Bank Account, to Bank Account, Money
     - Response: RequestFirmbankingUUID
+
+### 뱅킹 서비스 MVP 개발2 (은행으로 입금 및 출금 요청하기)
+#### Command 
+- 실제 실물 계좌에서의 입/출금을 요청하는 펌뱅킁을 요청, 수행
+  - request - Firmbanking - (-to Remittance) - (-with BankAccount)
+    - Request: from Bank Account, to Bank Account, Money
+    - Response: RequestFirmbankingUUID
+#### Query
+- 입금/출금 요청(펌뱅킹) 내역 조회
+  - find - FirmBankingInfo - (-by-membershipId)
+    - Request: membershipId
+    - Response: Firmbanking Object
