@@ -498,3 +498,15 @@ Business - 분리/분해/통합 ----> Micro Service
   - find - FirmBankingInfo - (-by-membershipId)
     - Request: membershipId
     - Response: Firmbanking Object
+
+#### 머니 서비스 정의
+- 고객의 선불 충전 금액(머니)을 관리하고, 이에 대해 다양한 쿼리를 제공할 수 있는 서비스
+- 특정 고객의 선불 충전금액(마이 머니)를 관리(증액, 감액)
+- 고객의 마이 머니 변동 Command 관리, 정합성 유지
+- 특정 고객의 마이 머니 변동 기록(입, 출금) Query 지원
+- 다양한 종류의 Query 지원 (e.g. 강남구에 사는 고객들의 머니 총합을 알고싶다면??)
+#### 머니 서비스 MVP 버전 정의하기
+- Money Service(머니 서비스)
+  - 고객의 선불 충전 금액(머니)을 관리하고, 이에 대해 다양한 쿼리를 제공할 수 있는 서비스
+- Money Service MVP Version (머니 서비스, Minimal Viable Product)
+  - 고객의 선불 충전 금액 마이머니의 증액/감액을 담당, 기록

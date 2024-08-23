@@ -5,51 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab55d1f3-62b5-4cb4-b2fd-42bb6502aa9c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/adapter/in/web/RequestFirmbankingController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/adapter/in/web/RequestFirmbankingRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/adapter/out/external/bank/ExternalFirmbankingRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/adapter/out/external/bank/FirmbankingResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/adapter/out/persistence/FirmbankingRequestJpaEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/adapter/out/persistence/FirmbankingRequestMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/adapter/out/persistence/FirmbankingRequestPersistenceAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/adapter/out/persistence/SpringDataFirmbankingRequestRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/application/port/in/RequestFirmBankingUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/application/port/in/RequestFirmbankingCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/application/port/out/RequestExternalFirmbankingPort.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/application/port/out/RequestFirmbankingPort.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/application/service/RequestFirmbankingService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/domain/FirmbankingRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/data/#innodb_redo/#ib_redo10" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/data/binlog.000005" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/data/my_pay/request_firmbanking.ibd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/adapter/out/external/bank/BankAccountAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/adapter/out/external/bank/BankAccountAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/adapter/out/persistence/RegisteredBankAccountJpaEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/adapter/out/persistence/RegisteredBankAccountJpaEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/#ib_16384_0.dblwr" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/#ib_16384_0.dblwr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/#innodb_redo/#ib_redo10_tmp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/#innodb_redo/#ib_redo9" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/#innodb_redo/#ib_redo9" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/#innodb_temp/temp_1.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/#innodb_temp/temp_1.ibt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/#innodb_temp/temp_10.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/#innodb_temp/temp_10.ibt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/#innodb_temp/temp_2.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/#innodb_temp/temp_2.ibt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/#innodb_temp/temp_3.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/#innodb_temp/temp_3.ibt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/#innodb_temp/temp_4.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/#innodb_temp/temp_4.ibt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/#innodb_temp/temp_5.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/#innodb_temp/temp_5.ibt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/#innodb_temp/temp_6.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/#innodb_temp/temp_6.ibt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/#innodb_temp/temp_7.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/#innodb_temp/temp_7.ibt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/#innodb_temp/temp_8.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/#innodb_temp/temp_8.ibt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/#innodb_temp/temp_9.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/#innodb_temp/temp_9.ibt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/binlog.000004" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/binlog.000004" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/binlog.index" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/binlog.index" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/ib_buffer_pool" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/ib_buffer_pool" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/ibdata1" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/ibdata1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/ibtmp1" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/ibtmp1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/my_pay/hibernate_sequence.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/my_pay/hibernate_sequence.ibd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/my_pay/membership.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/my_pay/membership.ibd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/my_pay/registered_bank_account.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/my_pay/registered_bank_account.ibd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/mysql.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/mysql.ibd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/undo_001" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/undo_001" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/undo_002" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/undo_002" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
