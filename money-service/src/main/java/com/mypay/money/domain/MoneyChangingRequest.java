@@ -27,7 +27,7 @@ public class MoneyChangingRequest {
     @Getter private final int changingMoneyAmount;
 
     // 머니 변액 요청에 대한 상태
-    @Getter private final int moneyChangingStatus; // enum
+    @Getter private final int moneyChangingStatus; // enum 0: 요청, 1: 성공, 2: 실패, 3: 취소됨
 //    enum ChangingMoneyStatus {
 //        REQUESTED, // 요청됨
 //        SUCCEEDED, // 성공

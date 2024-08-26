@@ -2,12 +2,15 @@ package com.mypay.money.adapter.out.persistence;
 
 import com.mypay.common.PersistenceAdapter;
 import com.mypay.money.application.port.out.IncreaseMoneyPort;
+import com.mypay.money.domain.MemberMoney.MembershipId;
+import com.mypay.money.domain.MemberMoney.MoneyBalance;
 import com.mypay.money.domain.MoneyChangingRequest.ChangingMoneyAmount;
 import com.mypay.money.domain.MoneyChangingRequest.MoneyChangingStatus;
 import com.mypay.money.domain.MoneyChangingRequest.MoneyChangingType;
 import com.mypay.money.domain.MoneyChangingRequest.TargetMembershipId;
 import com.mypay.money.domain.MoneyChangingRequest.Uuid;
 import java.sql.Timestamp;
+import java.util.List;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 
@@ -16,6 +19,7 @@ import lombok.RequiredArgsConstructor;
 public class MoneyChangingRequestPersistenceAdapter implements IncreaseMoneyPort {
 
     private final SpringDataMoneyChangingRequestRepository moneyChangingRequestRepository;
+    private final SpringDataMemberMoneyRepository memberMoneyRepository;
 
     @Override
     public MoneyChangingRequestJpaEntity createMoneyChangingRequest(TargetMembershipId targetMembershipId,
@@ -31,5 +35,23 @@ public class MoneyChangingRequestPersistenceAdapter implements IncreaseMoneyPort
                 UUID.randomUUID()
             )
         );
+    }
+
+    @Override
+    public MemberMoneyJpaEntity increaseMoney(MembershipId memberId, int increaseMoneyAmount) {
+        MemberMoneyJpaEntity entity;
+        try {
+            List<MemberMoneyJpaEntity> entities = memberMoneyRepository.findByMembershipId(Long.parseLong(memberId.getMembershipId()));
+            entity = entities.get(0); // 첫번째것만 받는 다고 가정
+
+            entity.setBalance(entity.getBalance() + increaseMoneyAmount);
+            return memberMoneyRepository.save(entity);
+        } catch (Exception e) {
+            entity = new MemberMoneyJpaEntity(
+                Long.parseLong(memberId.getMembershipId()),
+                increaseMoneyAmount
+            );
+            return memberMoneyRepository.save(entity);
+        }
     }
 }

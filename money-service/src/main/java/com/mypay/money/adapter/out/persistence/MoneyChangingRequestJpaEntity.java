@@ -1,6 +1,7 @@
 package com.mypay.money.adapter.out.persistence;
 
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.UUID;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -30,7 +31,7 @@ public class MoneyChangingRequestJpaEntity {
     private int moneyAmount;
 
     @Temporal(TemporalType.TIMESTAMP)
-    private Timestamp timestamp;
+    private Date timestamp;
 
     private int changingMoneyStatus; // 0: 요청, 12: 성공, 2: 실패
 

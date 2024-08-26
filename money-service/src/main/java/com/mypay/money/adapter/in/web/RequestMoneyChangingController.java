@@ -1,8 +1,5 @@
 package com.mypay.money.adapter.in.web;
 
-import com.mypay.banking.application.port.in.RegisterBankAccountCommand;
-import com.mypay.banking.application.port.in.RegisterBankAccountUseCase;
-import com.mypay.banking.domain.RegisteredBankAccount;
 import com.mypay.common.WebAdapter;
 import com.mypay.money.application.port.in.IncreaseMoneyRequestCommand;
 import com.mypay.money.application.port.in.IncreaseMoneyRequestUseCase;
@@ -31,9 +28,12 @@ public class RequestMoneyChangingController {
         MoneyChangingRequest moneyChangingRequest = increaseMoneyRequestUseCase.increaseMoneyRequest(command);
 
         // -> MoneyChangingRequest -> MoneyChangingResultDetail
-        MoneyChangingResultDetail resultDetail = new MoneyChangingResultDetail();
-
-        return resultDetail;
+        return new MoneyChangingResultDetail(
+            moneyChangingRequest.getMoneyChangingRequestId(),
+            0,
+            0,
+            moneyChangingRequest.getChangingMoneyAmount()
+        );
     }
 
     @PostMapping(path = "/money/decrease")

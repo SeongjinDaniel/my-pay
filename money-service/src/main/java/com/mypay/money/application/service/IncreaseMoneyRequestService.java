@@ -1,11 +1,16 @@
 package com.mypay.money.application.service;
 
 import com.mypay.common.UseCase;
+import com.mypay.money.adapter.out.persistence.MemberMoneyJpaEntity;
 import com.mypay.money.adapter.out.persistence.MoneyChangingRequestMapper;
 import com.mypay.money.application.port.in.IncreaseMoneyRequestCommand;
 import com.mypay.money.application.port.in.IncreaseMoneyRequestUseCase;
 import com.mypay.money.application.port.out.IncreaseMoneyPort;
+import com.mypay.money.domain.MemberMoney;
+import com.mypay.money.domain.MemberMoney.MembershipId;
 import com.mypay.money.domain.MoneyChangingRequest;
+import com.mypay.money.domain.MoneyChangingRequest.MoneyChangingStatus;
+import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -33,9 +38,20 @@ public class IncreaseMoneyRequestService implements IncreaseMoneyRequestUseCase 
         // 5. 펌뱅킹을 수행하고 (고객의 연된된 계좌 -> 마이페이 법인 계좌) (뱅킹)
 
         // 6-1. 결과가 정상적이라면. 성공으로 MoneyChangingRequest 상태값을 변동 후에 리턴
+        // 성공 시에 멤버의 MemberMoney 값 증액이 필요해요. (멤버)
+        MemberMoneyJpaEntity memberMoneyJpaEntity = increaseMoneyPort.increaseMoney(
+            new MembershipId(command.getTargetMembershipId()),
+            command.getAmount());
 
+        if (memberMoneyJpaEntity != null) {
+            return mapper.mapToDomainEntity(increaseMoneyPort.createMoneyChangingRequest(
+                new MoneyChangingRequest.TargetMembershipId(command.getTargetMembershipId()),
+                new MoneyChangingRequest.MoneyChangingType(0),
+                new MoneyChangingRequest.ChangingMoneyAmount(command.getAmount()),
+                new MoneyChangingRequest.MoneyChangingStatus(1),
+                new MoneyChangingRequest.Uuid(UUID.randomUUID())));
+        }
         // 6-2. 결과가 실패라면, 실패라고 MoneyChangingRequest 상태값을 변동 후에 리턴
-
         return null;
     }
 }
