@@ -626,3 +626,110 @@ Business - 분리/분해/통합 ----> Micro Service
 - istio(envoy-proxy를 내부적으로 사용함), kiali
 
 **구체적으로 언제, 어떤 상황에 어떤 통신 패턴(IPC, Inter Process Communication Pattern)을 활용할지**
+
+## IPC를 위한 패턴
+- IPC: Inter Process Communication
+- "프로세스 간 통신" -> "서비스 간 통신" -> MSA
+- Network 통신이 어떻게 이루어지는지 이해가 필요해요
+- -> OSI 7계층 (Open Systems InterConnection), ICP/IP 모델
+
+한 곳에서 다른 곳으로 통신이 어떻게 되는지 설명하는 모델
+![OSI_7_TCP_IP.png](images/OSI_7_TCP_IP.png)
+
+### IPC 를 위한 패턴
+일반적인 IPC 는 크게 2가지로 나늬어요
+- Sync (동기) 방식
+  - (Restful 방식) HTTP, gRPC 방식을 많이 활용해요
+  - 적절한 경우
+    - 굉장히 중요한 작업을 하는 경우
+    - 비교적 빠른 작업에 대한 요청일 경우
+    - 선행작업이 필수적인 비즈니스인 경우
+  - 부적절한 경우
+    - 매우 복잡하고 리소스 소모가 많은 작업의 요청일 경우
+    - 비교적 한정된 컴퓨팅 리소스를 가지고 있는 경우
+- Async (비동기) 방식
+  - Queue 를 활용하여 Produce, Consume 방식으로 데이터 통신을 해요
+    - e.g. rabbitmq, kafka pubsub...
+  - 적절한 경우
+    - 매우 복잡하고 리소스 소모가 많은 작업의 요청일 경우
+    - 비교적 한정된 컴퓨팅 리소스를 가지고 있는 경우
+      - 그런데, 서버 리소스로 인해 누락이 되면 안되는 경우
+    - 독립적으로 실행되는 수 많은 서비스들이 있는 대용량 MSA 환경
+      - 응답 대기시간을 최소화
+      - 느슨하게 결합도를 낮춰, 개별 서비스의 확장성을 유연하게 처리
+      - 각 서비스에 문제가 생겼더라도, 복구 시에는 데이터 안정적으로 처리 가능
+
+#### 일반적인 Sync IPC 패턴 1 - HTTP
+OSI 7응용 계층의 통신 프로토콜로서, L4 계층에서는 tcp 방식을 활용하는 프로토콜
+여러가지 종류의 메서드가 존재하지만 일반적으로 4개의 메서드를 활용해요 (CRUD)
+- **GET**
+  - 리소스를 얻어오기 위한 메서드 (Read)
+- **POST**
+  - 리로스를 변경(생성) 하기 위한 메서드 (Create)
+- **PUT**
+  - 리소스를 변경 (생성된 리소스를 변경) 하기 위한 메서드 (Update)
+  - **멱등성(Idempotence) 필수**
+- **DELETE**
+  - 리소스를 삭제하기 위한 메서드 (Delete)
+
+#### 일반적인 Sync IPC 패턴 2 - gRPC
+**GRPC (google Remote Procedure Call)**
+- Protocol Buffer라는 것을 기반으로 한는 원격 프로시저 호출 프레임워크에요.
+- 일반적으로 Server to Server Call 경우에 한해서 사용해요.
+- 정확히 특정 계층의 프로토콜이라고 하기는 어려워요. (L4~L7)
+- 빠르지만, 번거로운 작업들과 위험이 수반되어요. 
+- Proto를 미리 정해놓고 통신을 해요
+
+### Async 방식
+Queue 를 활용하여 Produce, Consume 방식으로 데이터 통신을 해요  
+큐를 활용하는 방식을 표준화한 프로토콜도 존쟇해요
+
+MQTT, AMQP: OASIS(Organization for the Advancement of Structured Information Standards)
+라는 곳에서 표준으로 제정한 표준 프로토콜
+
+**MQTT(Message Queuing Telemetry Transport)**
+- 경량 메세징 프로토콜로서, IoT 등 경량화가 최대 목적인 프로토콜
+- Publish, Subscribe, Topic 모델 사용
+**AMQP(Advanced Message Queuing Protocol)**
+- 엔터프라이즈 레벨의 메세징 시스템을 위한 프로토콜
+- MQTT 개념 외에도, Exchange, Binding 등 개념 추가
+- Rabbit MQ, Active MQ, ...
+
+일반적으로 MQTT 를 사용하지 않고 AMQP 를 사용한다
+Spec 도 낮고 기능도 별로 없음
+
+#### AMQP(Advanced Message Queuing Protocol)
+발행자는 Exchange 만 바라봐요
+- Exchange 는 Routing 역할
+Queue-Consumer
+- --> Subscribe
+- --> Request to Message Sending
+
+![AMQP_ARCHITECTURE.png](images/AMQP_ARCHITECTURE.png)
+
+#### MQTT, AMQP 도 아닌 kafka...?
+- Kafka는 링크드인에서 개발한 대용량의 데이터 스트림을 처리하기 위한 분산 스트리밍 플랫폼
+- MQTT, AMQP 등의 표준을 구현하는 프로토콜이 아닌, 독립적인 데이터 스트리밍 플랫폼
+- 비교적 복잡한 개념들을 가지고 있지만, 성능(메세지 처리량)은 압도적이에요.
+- 고성능, 고용량 메시지 처리를 위해 설계되었어요
+- 많은 회사에서, 그리고 JVM과의 좋은 궁합으로 상당히 폭넓게 사용되어 지고 있어요
+- 다만, 제대로 사용을 하기 위한 러닝 커브는 꽤 높은 편이에요
+
+#### kafka 의 구성 요소
+- Topic: Producer, Consumer 의 메시징 객체
+- Partition: Topic 을 물리적으로 분할하고, 처리
+- Broker: Kafaka 클러스터의 각 노드를 의미
+- Zookeeper: Kafaka 클러스터의 메타데이터 관리
+
+![KAFKA_ARCHITECTURE.png](images/KAFKA_ARCHITECTURE.png)
+
+#### Async 통신의 가장 큰 단점
+- 1 Request -><- Sync 방식 -><- 1 Response
+- 1 Produce -><- Asynce 방식 -><- 1 Consume??
+  - 1개의 큐를 가지고 하나의 Produce 에서 하나의 Consume 으로 보내는 것은 불가능하다
+  - Consume을 하다가 Handling을 하다가 Consume 서버가 죽어버리면 그서버가 Commit을 했는지 유무를 알수가 없다 그래서 불가능
+  - 1개의 Produce로 1번의 Consume을 하는것은 그래서 불가능하다
+  - 그래서 다시 Consumer 서버가 다시 정상으로 켜졌을 때 큐잉 시스템이 아까 너 Commit 안보내서 한번더 똑같은 데이터를 2번이상 받을 수 있다
+
+### 멱등성이 중요한 이유
+- 

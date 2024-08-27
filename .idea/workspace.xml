@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab55d1f3-62b5-4cb4-b2fd-42bb6502aa9c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/images/OSI_7_TCP_IP.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/AMQP_ARCHITECTURE.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/KAFKA_ARCHITECTURE.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
@@ -353,7 +353,7 @@
       <workItem from="1724083600495" duration="8397000" />
       <workItem from="1724197582830" duration="7830000" />
       <workItem from="1724597020319" duration="7875000" />
-      <workItem from="1724687046088" duration="4123000" />
+      <workItem from="1724687046088" duration="6250000" />
     </task>
     <servers />
   </component>
