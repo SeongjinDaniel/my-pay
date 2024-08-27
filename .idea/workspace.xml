@@ -5,45 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab55d1f3-62b5-4cb4-b2fd-42bb6502aa9c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/db/data/#innodb_redo/#ib_redo41_tmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/data/binlog.000006" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/data/my_pay/member_money.ibd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/data/my_pay/money_changing_request.ibd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/money-service/src/main/java/com/mypay/money/adapter/out/persistence/MemberMoneyJpaEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/money-service/src/main/java/com/mypay/money/adapter/out/persistence/SpringDataMemberMoneyRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/money-service/src/main/java/com/mypay/money/domain/MemberMoney.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/OSI_7_TCP_IP.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img_1.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/#ib_16384_0.dblwr" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/#ib_16384_0.dblwr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/#innodb_redo/#ib_redo10" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/#innodb_redo/#ib_redo10" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/#innodb_redo/#ib_redo9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/#innodb_temp/temp_1.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/#innodb_temp/temp_1.ibt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/#innodb_temp/temp_10.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/#innodb_temp/temp_10.ibt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/#innodb_temp/temp_2.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/#innodb_temp/temp_2.ibt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/#innodb_temp/temp_3.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/#innodb_temp/temp_3.ibt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/#innodb_temp/temp_4.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/#innodb_temp/temp_4.ibt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/#innodb_temp/temp_5.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/#innodb_temp/temp_5.ibt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/#innodb_temp/temp_6.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/#innodb_temp/temp_6.ibt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/#innodb_temp/temp_7.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/#innodb_temp/temp_7.ibt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/#innodb_temp/temp_8.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/#innodb_temp/temp_8.ibt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/#innodb_temp/temp_9.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/#innodb_temp/temp_9.ibt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/binlog.000005" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/binlog.000005" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/binlog.index" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/binlog.index" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/ibdata1" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/ibdata1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/ibtmp1" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/ibtmp1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/my_pay/hibernate_sequence.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/my_pay/hibernate_sequence.ibd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/my_pay/membership.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/my_pay/membership.ibd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/my_pay/registered_bank_account.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/my_pay/registered_bank_account.ibd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/my_pay/request_firmbanking.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/my_pay/request_firmbanking.ibd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/mysql.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/mysql.ibd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/undo_001" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/undo_001" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/data/undo_002" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/undo_002" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/money-service/src/main/java/com/mypay/money/adapter/in/web/RequestMoneyChangingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/money-service/src/main/java/com/mypay/money/adapter/in/web/RequestMoneyChangingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/money-service/src/main/java/com/mypay/money/adapter/out/persistence/MoneyChangingRequestJpaEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/money-service/src/main/java/com/mypay/money/adapter/out/persistence/MoneyChangingRequestJpaEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/money-service/src/main/java/com/mypay/money/adapter/out/persistence/MoneyChangingRequestPersistenceAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/money-service/src/main/java/com/mypay/money/adapter/out/persistence/MoneyChangingRequestPersistenceAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/money-service/src/main/java/com/mypay/money/application/port/out/IncreaseMoneyPort.java" beforeDir="false" afterPath="$PROJECT_DIR$/money-service/src/main/java/com/mypay/money/application/port/out/IncreaseMoneyPort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/money-service/src/main/java/com/mypay/money/application/service/IncreaseMoneyRequestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/money-service/src/main/java/com/mypay/money/application/service/IncreaseMoneyRequestService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/money-service/src/main/java/com/mypay/money/domain/MoneyChangingRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/money-service/src/main/java/com/mypay/money/domain/MoneyChangingRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,58 +106,58 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Application.Main.executor": "Run",
-    "Gradle.Build MyPay.executor": "Run",
-    "Gradle.Build my-pay.executor": "Run",
-    "Gradle.MyPay [dependencies].executor": "Run",
-    "Gradle.MyPay [docker].executor": "Run",
-    "Gradle.MyPay:common [clean].executor": "Run",
-    "Gradle.MyPay:membership-service [clean].executor": "Run",
-    "Gradle.my-pay [build].executor": "Run",
-    "JUnit.RegisterBankAccountControllerTest.testRegisterBankAccount.executor": "Debug",
-    "JUnit.RegisterMembershipControllerTest.testRegisterMembership.executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.BankingApplication.executor": "Run",
-    "Spring Boot.MembershipApplication (1).executor": "Run",
-    "Spring Boot.MembershipApplication.executor": "Run",
-    "Spring Boot.MoneyApplication.executor": "Run",
-    "Spring Boot.TestApplication (1).executor": "Run",
-    "Spring Boot.TestApplication.executor": "Run",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "practice4",
-    "jdk.selected.JAVA_MODULE": "11",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/seongjin/Desktop/oliver/programming/MSA-FastCampus/my-pay/money-service/src/main/java/com/mypay/money",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0",
-    "run.configurations.included.in.services": "true",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Build MyPay.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Build my-pay.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.MyPay [dependencies].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.MyPay [docker].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.MyPay:common [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.MyPay:membership-service [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.my-pay [build].executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RegisterBankAccountControllerTest.testRegisterBankAccount.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.RegisterMembershipControllerTest.testRegisterMembership.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.BankingApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.MembershipApplication (1).executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.MembershipApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.MoneyApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.TestApplication (1).executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.TestApplication.executor&quot;: &quot;Run&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;11&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/seongjin/Desktop/oliver/programming/MSA-FastCampus/my-pay/money-service/src/main/java/com/mypay/money&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/money-service/src/main/java/com/mypay/money" />
@@ -388,6 +353,7 @@
       <workItem from="1724083600495" duration="8397000" />
       <workItem from="1724197582830" duration="7830000" />
       <workItem from="1724597020319" duration="7875000" />
+      <workItem from="1724687046088" duration="4123000" />
     </task>
     <servers />
   </component>
@@ -423,26 +389,6 @@
           <url>file://$PROJECT_DIR$/membership-service/src/test/java/com/mypay/membership/adapter/in/web/RegisterMembershipControllerTest.java</url>
           <line>38</line>
           <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/membership-service/src/main/java/com/mypay/membership/adapter/in/web/RegisterMembershipController.java</url>
-          <line>22</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/membership-service/src/main/java/com/mypay/membership/application/service/RegisterMembershipService.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/application/service/RegisterBankAccountService.java</url>
-          <line>56</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/adapter/out/persistence/RegisteredBankAccountPersistenceAdapter.java</url>
-          <line>17</line>
-          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
