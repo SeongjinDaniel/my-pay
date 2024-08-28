@@ -732,4 +732,252 @@ Queue-Consumer
   - 그래서 다시 Consumer 서버가 다시 정상으로 켜졌을 때 큐잉 시스템이 아까 너 Commit 안보내서 한번더 똑같은 데이터를 2번이상 받을 수 있다
 
 ### 멱등성이 중요한 이유
-- 
+#### Async 통신의 한계
+특정 상황들에서는 필연적으로 두 번 이상 데이터를 받을 가능성 존재
+- Async 통신의 장점이 명확하고, 사용하기에 매우 적절한 경우들이 존재하나 한계 존재 (e.g. Logging Pipeline, UX 상 빠른 리턴 후 결과는 나중에 보여줘도 되는 케이스)
+
+##### Logging Pipeline
+Log Write to File -> File Scraping -> Pipeline .... -> Indexing .... -> Kibana(Elastic Search)
+
+##### XX 페이 내 대출 가능 여부 조회 플랫폼
+- 인증
+- 각 기관들에서 대출 가능 여부를 확인하고 있는 중이에요. 완료되면 알림톡을 보내드릴게요~
+- 완료 이벤트를 수신하여 XX톡 발송 // 이후 중요한 정보를 관리하는 외부 기관 프로세싱 수행 등
+
+#### 그렇다면, Async 통신을 활용해서 중요한 비즈니스를 하기는 어렵겠네요?
+상황:
+- 2번 이상 수신되는 것이 문제
+- 중요한 비즈니스에서도 리소스 활용을 최적화 하고 싶어요. (서버를 활용하는 입장에서 wait 하는 일에대해서 다른일을 시킴)
+
+2번 이상 수신되어도, 괜찮을 수 있는 방법이 없을까?
+-> 멱등성 (Idempotent)이 필요한 상황 식별
+
+##### 멱등성이 무엇인가요?
+- 간단히 말해서 특정 호출이 1번 혹은 여러번 호출되어도 서버의 상태는 1번 호출된 것과 동일해야 한다.
+
+일반적으로 Update, Delete, Put 요청은 멱등성을 가지며, Create 요청은 멱등성을 가지지 않아요. <br>
+-> **Sync 통신에서는 멱등성을 Business Logic 으로 구현해요**
+
+#### Asyn는 통신에서의 멱등성
+Async 통신에서는 기본적으로 멱등성이 보장되지 않는 통신 방식이에요<br>
+그럼에도 멱등성을 구현하기 위해서는, "다른 무언가"가 필요해요! -> 다른 큐잉 솔류션(Ex-Once)
+
+"멱등성" 구현을 위한 DB Table(RDB)를 사용해서 멱등성을 구현할 수 있어요!
+
+**queue_log**
+- message_id: 특정 큐잉 메시지의 고유 식별자
+- status: 메시지의 상태 (대기중, 처리중, 완료)
+- created_timestamp: Producer 로부터 메시지가 큐에 추가된 시간
+- processed_timestamp: Consumer 로부터 메시지가 큐에 처리된 시간
+- processed_status: Consumer 로부터 처리된 메시지의 결과 (성공, 실패)
+
+#### 멱등성이 구현된 Producer, Consumer
+##### 멱등성 구현 이전,
+Producer 는 항상 메시지를 생성하여 큐에 추가하고, Consumer 는 항상 메시지를 처리해요
+##### 멱등성 구현 이후,
+###### Message Produce 시,
+- Produce 전에, queue_log 테이블에 동일한 message_id 가 존재하는지 확인
+  - 존재할 경우, 이미 수행되었으므로 에러/스킵 처리
+  - 존재하지 않을 경우, 새로운 메시지를 큐에 추가
+###### Message Consume 시,
+- Consume 전에, queue_log 테이블에서 message_id 의 상태를 확인
+  - 처리된 경우 혹은 처리중인 status 인 경우, 중복 처리로 간주하여 에러/스킵 처리
+  - 처리되지 않은 경우, message_id 의 status 값을 처리중으로 변경 후에 메시지 처리
+    - 성공 시, processed_status 값을 성공으로 처리
+    - 실패 시, processed_status 값을 처리 실패로 처리
+
+#### 멱등성이 구현된 메시징 솔루션
+멱등성이 워낙 중요하므로, 여러 메시징 오픈소스에서도 기능을 내장하는 경우가 있어요.
+(e.g. Exactly Once)
+
+하지만, 앞에서 배우셨다시피 기본적으로 메시징(큐잉)은 멱등성을 보장하지 않아요.<br>
+즉, 위 기능을 제공한다는 얘기는 앞에서 저희가 살펴보았던 멱등성 보장 프로세스를 내장하고 있다는 뜻이에요.<br>
+당연히 사용하지 않는 것에 비해서는 퍼포먼스(성능)적인 차이가 존재하게 되어요.
+
+**단순히, Exactly Once 를 지원하네요.가 아니라 내부적으로는 이런식으로 동작하겠네 가 중요해요!!**
+
+#### 결론
+IPC -> Inter Process Communication -> 다수의 Process
+- 일반적으로 Process=Service-> IPC 는 서비스 간의 통신
+- IPC 방식에는 크게 Sync, Async 방식이 존재해요.
+Sync: Http, grpc
+- Async: 메시지 큐잉
+Async 통신의 한계. 그러나 가지는 장점이 한계를 뛰어넘기 때문에, 이를 극복하기 위한 **멱등성** 식별<br>
+최근의 메시징 시스템은 멱등성 기능을 내재하는 Exactly Once 기능을 제공하기도 해요.
+
+**현상을 그대로 받아들이는 것이 아니라, 왜 이런 기능들이 나오게 되었을까를 생각해 보아요!**
+
+# Kafka는 무엇일까?
+## kafka 의 기본개념
+### Why Kafka? 1
+kafka 는 일반적인 큐잉을 위한 오픈소스? like RabbitMQ (AMQP)?<br>
+kafka 는 실시간 이벤트 스트리밍 플랫폼!
+- LinkedIn에서 겪었던 다양한 어려움 (확장 용이성, 고성능 실시간 데이터 처리)
+  - e.g. 채팅, 피드 등에서 필요한 "실시간성" 처리 문제
+- 고가용성, 고성능
+  - 기존의 SYnc 방식을 대체 "가능"할 수도 있는 수단
+- 일반적으로 규모가 작은 비즈니스에는 비적합
+  - 일단 큐에 넣어두고, 필요에 따라 나중에 처리해도 되는 비즈닛느
+  - 라우팅 변경에 대한 가능성이 굉장히 큰 비즈니스
+    - 오히려 간단한 구조의 RabbitMQ가 적합할 수도.
+
+### Why Kafka? 2
+대규모의 실시간 이벤트/데이터 스트리밍이 필요한 비즈니스에 적합
+-> 트위터, 카카오, 넷플릭스, 우버...
+
+대규모를 지원한다는 것 -> 소규모도 당연히 지원 -> 그렇다면 모두 다 Kafka 쓰면 되는 것 아닌가요?
+- **YES!**
+
+그러나, 적합하지 않을 수 있다라는 의미 -> Over Spec.
+- -> High Engineering Learning Curbe, Kafka 전문 관리 인력 필요.
+
+### kafka의 기본 개념 1(Producer, Consumer, Consumer Group)
+#### Producer
+- 메시지를 발행 하는 **"주체"**
+- Produce: 메시지를 발행하는 동작
+#### Consumer
+- 메시지를 소비(즉, 가져와서 처리) 하는 **"주체"**
+- Consume: 메시지를 가져와서 처리하는 동작
+#### Consumer Group
+- 메시지를 소비(즉, 가져와서 처리)하는 **"주체 집단"**
+
+### kafka의 기본 개념 2(Kafka Cluster, Topic)
+#### Producer
+- Kafka Cluster 에 존재하는 Topic 에 메시지를 발행하는 **"주체"**
+- Produce: 메시지를 Kafka Cluster 에 존재하는 Topic 에 발행하는 동작
+
+#### Consumer
+- Kafka Cluster 에 존재하는 Topic 에서 메시지를 소비(즉, 가져와서 처리)하는 **"주체"**
+- Consume: 메시지를 Kafka Cluster 에 존재하는 Topic 으로부터 가져와서 이를 처리하는 동작
+
+### kafka의 기본 개념 3(Kafka Broker)
+#### Producer
+- **Kafka Cluster** 내 **Topic** 이 포함된 Kafka Broker 에 메시지를 발행 하는 **"주체"**
+- Produce: 메시지를 Kafka Broker 내 Topic 에 발행하는 동작
+
+#### Consumer
+- **Kafka Cluster** 내 Topic 이 포함된 Kafka Broker 로부터 메시지를 소비(즉, 가져와서 처리) 하는 **주체**
+- Consume: 메시지를 Kafka Broker 내 Topic 으로부터 가져와서 이를 처리하는 동작
+
+### kafka의 기본 개념 4(Zookeeper)
+#### Apache Zookeeper (for hadoop Ecosystem)
+- 분산 처리 시스템에서 분산 처리를 위한 코디네이터
+- -> **누가 리더인지, 어느상황인지, 동기화 상태 등 관리**
+e.g. 타조, 피그, 코끼리...
+#### Kafka Cluster 를 관리.
+- Kafka Broker 의 상태를 관리하고
+- Cluster 내에 포함된 Topic 들을 관리하며
+- 등록된 Consumer 정보를 관리하는 "주체"
+
+## Kafka Topic 설계 시 유의 사항
+### Kafka Topic ?
+- 메시지를 발행하고 소비할 수 있는 "객체" (Object)
+- "~ 토픽에 Produce 된 메시지를 Consume 하여 처리한다."
+
+- Kafka Topic 은 고가용성, 고성능을 구현하는 핵심 개념
+
+Kafka Topic 에 존재하는 수많은 설정 값들... -> 성능 가용성에 엄청난 차이를 불러 일으킬 수 있어요<br>
+**즉, 비즈니스에 따라 Topic 의 설정은 완전히 달라질 수 있어요**<br>
+**Kafka Topic 내 설정들이 어떤 것을 의미하는 지 "이해"할 수 있다면! 적절한 Topic 설정이 어떤 것인지, "판단" 할 수 있을거에요**
+
+### Kafka Topic 개념1 (파티션, Partition)
+- 메시지를 발행/소비 하는 객체로서, 수 많은 설정 값들이 존재해요.
+- 먼저 Topic 설정을 이해하기 위해서는 Topic 을 이루는 Partition 에 대해 이해가 필요해요.
+
+- Topic 은 1개 이상의 Partition 으로 이루어져요.
+  - Partition 이란, 하나의 토픽에 포함된 메시지들을 물리적으로 분리하여 저장하는 저장소에요.
+    - 하나의 메시지를 분리시켜 저장하는 것이 아닌, 하나의 메시지가 하나의 파티션에 들어가는 형태에요
+      - Not Sharding, Partitioning!
+      - 많이 분리 -> 많은 물리적 리소스 활용 가능
+      - Partition 이 많으면, 성능이 향상 되어요.
+
+**파티션 -> 성능과 직결되는 요소**
+
+### Kafka Topic 개념 2(파티션 갯수와 성능)
+- 하나의 Partition 은 하나의 Kafka Broker 에 소속되어요 (1:1)
+- 하나의 Kafka Broker 는 1개 이상의 Partition 을 가지고 있어요. (1:N)
+- Partition 갯수가 많다고 해서, Kafka Broker 갯수가 많은 것을 의미하지는 않아요.
+  - 즉, Partition 갯수가 절대적인 성능의 결정 요소는 아니에요.
+
+**하나의 물리적인 Broker 퍼포먼스에는 한계가 있으니까요.**
+
+### Kafka Topic 개념 3(Partition 과 Partition Replica)
+- 파티션의 Replication Factor 는, 가용성을 위한 개념이에요.
+- 하나의 파티션은, Kafka Cluster 내에 1개 이상의 복제본(Replica)을 가질 수 있어요.
+  - RF(Replication Factor) 는 이 복제본의 갯수를 의미해요.
+- 즉, RF 가 1보다 큰 수치를 가져야만 고가용성을 달성할 수 있어요.
+  - 일반적으로 클 수록, 가용성이 높다고 할 수 있어요.
+  - 물론, Broker 갯수가 충분할 때 한정이에요.
+- 너무 크면 메시지의 저장 공간을 낭비할 수 있어요.
+- 그리고 Produce 할 때에도, 지연 시간이 길어질 수 있어요.
+
+### Kafka Topic 개념 4(ISR, In-sync Replica) "Sync" 가 되었다고 판단 가능한 레플리카 그룹
+"복제가 되었다"
+- Partition 의 복제 본이 많아지면 (RF가 커지면) 사용성이 늘어나요
+  - 그리고 'Produce' 시에도 복제해야할 데이터가 늘어나요
+- -> Produce 시의 지연시간이 길어질 수 있어요.
+  - 하지만, 그럼에도 지연 시간은 짧게 유지하고 싶다면?
+- ISR(In-sync Replica) 그룹 이란, 하나의 파티션에 대한 Replica 들이 동기화 된 그룹을 의미.
+  - -> ISR 그룹에 많은 파티션 포함
+    - -> Produce 신뢰성/가용성 향상, 지연시간 증가
+  - -> ISR 그룹에 적은 파티션 포함
+    - -> Produce 신뢰성/가용성 하락, 지연시간 감소
+- 적절하게 토픽에 Produce 되었다
+  - -> 토픽 내 파티션의 모든 ISR 그룹에 복제 되었다.
+
+### Kafka Topic 설계 시 유의할 것들
+- 토픽에 포함된 파티션 갯수 (Partition Number) - Topic 을 사용하기 위한 일꾼들
+  - 일반적으로 퍼포먼스와 연관
+- 토픽에 포함된 파티션의 복제본 갯수 (RF, Replication Factor) - Produce 시, 정상적으로 N개 "Replication" 가 되었다.
+  - 일반적으로 가용성과 연관
+- 토픽의 ISR 그룹에 포함된 파티션 그룹 (ISR, In-sync Replica) - Replica 들이 정삭적으로 "Sync" 가 되었다. (복제)
+  - 일반적으로 Produce 시의 지연 시간, 신뢰성과 연관
+
+이 모든것에 대한 전제는 충분한 Kafka Broker 의 개수이다.
+
+### 결론
+Kafka 는 대규모 이벤트/데이터 스트리밍 **플랫폼**
+대규모 분산 처리 환경에서 적합한 선택지.
+
+But, 높은 러닝 커브와 카프카 클러스터 운영을 위한 전문 인력들의 필요성<br>
+그럼에도,잘 사용한다면 신뢰성/가용성/성능 면에서는 최고의 효율<br>
+잘 사용하기 위해서는 "토픽"을 이루는 파티션과 관련된 설정들의 "이해" 필요
+비즈니스의 특성에 따라, 인프라 환경에 따라서 적절한 설정값들을 "판단" 필요
+
+### Kafka 를 구축해 보기에 앞서.. Zookeeper 는 왜?
+Zookeeper 는 Apache 재단에서 초기 Hadoop 의 하위 프로젝트로 개발되었던, 분산 시스템 코디네이터 기능 확장에 따라서, 분산 시스템에서 공통적으로 겪는 문제를 해결하는 코디네이터로서 프로젝트 분리
+
+### Kafka Cluster 또한 분산 시스템으로서 Zookeeper 필요
+- Cluster 내에서 어떤 Broker 가 Leader Broker 인지 (**Controller 선정**)
+  - 어느 Broker 가 Partition/Replica 리더를 선출 할 지 선정
+- Topic 의 파티션 중에 어느 것이 Leader Partition 인지 정보 저장
+  - 장애 시, 어느 파티션이 우선되는 지 정보 관리
+- Cluster 내 Broker 들의 메시징 Skew(데이터 분산되어 있는 정도) 관리 / Broker 내 Partition 들의 Skew 관리등의 코디네이터 역할 수행
+
+
+### 실습 계획
+My Kafka Cluster
+- 1 Broker
+- 1 Zookeeper
+- 1 Kafka-ui (Kafka Cluster 의 상태를 확인할 수 있는 UI Tool)
+#### using Docker-Compose
+- Sample Producer
+- Sample Consumer
+#### Simple Logging Pipeline
+- Kafka 를 사용하여, Async 방식으로 로그를 발행하고, Consumer 에서 stdout 을 통해서 출력하는 Pipeline
+![KAFKA_LOGGING_PIPELINE.png](images/KAFKA_LOGGING_PIPELINE.png)
+
+### Logging Pipeline 을 위한 Topic 설계, 생성
+- my.logging.out.stdout
+  - partition 1개
+  - replication-factor = 2
+  - min.insync.replica = 1
+```yaml
+kafka-topic.sh --create
+ --zookeeper <zookeeper:2181>
+ --topic<my.logging.out.stdout>
+
+ --partitions 1
+ -- replication-factor 2
+ -- config min.insync.replicas=1
+```
