@@ -981,3 +981,6 @@ kafka-topic.sh --create
  -- replication-factor 2
  -- config min.insync.replicas=1
 ```
+
+### 고도화된 Logging Pipeline ?
+![LOGGING_PIPELINE.png](images/LOGGING_PIPELINE.png)
