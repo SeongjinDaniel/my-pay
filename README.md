@@ -981,3 +981,10 @@ kafka-topic.sh --create
  -- replication-factor 2
  -- config min.insync.replicas=1
 ```
+
+카프카 서버에 들어가보면 아래 path에 kafka-topics.sh 파일이 존재 함<br>
+`/opt/bitnami/kafka/bin`
+- 본래대로라면 위에 있는 파일을 실행시켜서 환경 변수를 설정해서 topic을 생성하지만, kakfka-ui에서 토픽을 생성하는 툴을 제공하기 때문에
+- 카프카-ui 에서 함
+
+![KAFKA_UI_TOPIC_CREATE.png](images/KAFKA_UI_TOPIC_CREATE.png)
