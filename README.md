@@ -983,4 +983,34 @@ kafka-topic.sh --create
 ```
 
 ### 고도화된 Logging Pipeline ?
-![LOGGING_PIPELINE.png](images/LOGGING_PIPELINE.png)
+![LOGGING_PIPELINE.png](images/LOGGING_PIPELINE.png) 
+
+### 마이 페이에서 IPC 가 필요한 구간 식별 (for banking-service)
+#### banking-service
+#### - registerBankAccount API
+- ...
+- -> call membership-service (**findMembershipByMemberId**)
+  - 특정 고객의 고객 상태가 정상적인지 체크하기 위함
+#### - requestFirmbanking API
+- ...
+- -> call External Bank   -> (http)
+  - 실제 외부 은행에 입/출금 요청을 하기 위함
+
+### 마이 페이에서 사용 가능한 Option과 적용할 패턴 결정1
+#### IPC Pattern 을 선택함에 있어 가능한 Options
+- **Sync**
+  - http: 통신 방식이 유동적일 경우. 리소스에 크게 구애받지 않아도 되는 경우
+  - grpc: 통신 방식이 강하게 정해진 경우. 리소스 제한이 큰 경우
+- **Async**
+  - 고성능 이벤트/데이터 플랫폼의 존재 유무                          -----> 가장 일반적인 결론 ---> Sync 방식의 Http Call 사용
+  - 비즈니스적으로 판단 필요
+    - 민감한 비즈니스인지
+    - 조금 응답 지연이 늦어도 괜찮은지
+    - 몰리는 상황(불안정한 인프라)에서 어떻게든 수행해 줄만한 가치가 있는지
+    - 비동기 통신을 안정적으로 처리할만한 인프라가 있는지
+
+### 실습 계획 (for banking-service)
+1. docker-compose 를 통해서 membership-service 의 endpoint 를 환경 변수(env)로 등록
+2. http call 을 위한 기본 어댑터 구현, Port 인터페이스와 연동
+3. dummy Bank Server 구현
+4. API 를 통한 IPC 적용 테스트
