@@ -5,49 +5,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab55d1f3-62b5-4cb4-b2fd-42bb6502aa9c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/BankingConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/mypay/common/LoggingAspect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/mypay/common/LoggingProducer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/data/#innodb_temp/temp_1.ibt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/data/#innodb_temp/temp_10.ibt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/data/#innodb_temp/temp_2.ibt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/data/#innodb_temp/temp_3.ibt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/data/#innodb_temp/temp_4.ibt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/data/#innodb_temp/temp_5.ibt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/data/#innodb_temp/temp_6.ibt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/data/#innodb_temp/temp_7.ibt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/data/#innodb_temp/temp_8.ibt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/data/#innodb_temp/temp_9.ibt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/data/binlog.000010" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/data/ibtmp1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/data/my_pay/hibernate_sequence.ibd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/data/my_pay/member_money.ibd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/data/my_pay/membership.ibd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/data/my_pay/money_changing_request.ibd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/data/my_pay/registered_bank_account.ibd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/data/my_pay/request_firmbanking.ibd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/KAFKA_UI_TOPIC_CREATE.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logging-consumer/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logging-consumer/src/main/java/com/mypay/loggingconsumer/LoggingConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logging-consumer/src/main/java/com/mypay/loggingconsumer/LoggingConsumerApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logging-consumer/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/membership-service/src/main/java/com/mypay/membership/MembershipConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/money-service/src/main/java/com/mypay/money/MoneyConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/adapter/out/service/Membership.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/adapter/out/service/MembershipServiceAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/application/port/out/GetMembershipPort.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/application/port/out/MembershipStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/mypay/common/CommonHttpClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/adapter/in/web/RegisterBankAccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/adapter/in/web/RegisterBankAccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/adapter/in/web/RequestFirmbankingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/adapter/in/web/RequestFirmbankingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/application/service/RegisterBankAccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/banking-service/src/main/java/com/mypay/banking/application/service/RegisterBankAccountService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/data/#ib_16384_0.dblwr" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/#ib_16384_0.dblwr" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/data/#innodb_redo/#ib_redo10" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/#innodb_redo/#ib_redo10" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/data/#innodb_temp/temp_1.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/#innodb_temp/temp_1.ibt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/data/#innodb_temp/temp_10.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/#innodb_temp/temp_10.ibt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/data/#innodb_temp/temp_2.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/#innodb_temp/temp_2.ibt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/data/#innodb_temp/temp_3.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/#innodb_temp/temp_3.ibt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/data/#innodb_temp/temp_4.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/#innodb_temp/temp_4.ibt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/data/#innodb_temp/temp_5.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/#innodb_temp/temp_5.ibt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/data/#innodb_temp/temp_6.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/#innodb_temp/temp_6.ibt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/data/#innodb_temp/temp_7.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/#innodb_temp/temp_7.ibt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/data/#innodb_temp/temp_8.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/#innodb_temp/temp_8.ibt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/data/#innodb_temp/temp_9.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/#innodb_temp/temp_9.ibt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/data/binlog.000010" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/binlog.000010" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/data/binlog.index" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/binlog.index" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/data/ibdata1" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/ibdata1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/data/ibtmp1" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/ibtmp1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/data/my_pay/hibernate_sequence.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/my_pay/hibernate_sequence.ibd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/data/my_pay/member_money.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/my_pay/member_money.ibd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/data/my_pay/membership.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/my_pay/membership.ibd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/data/my_pay/money_changing_request.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/my_pay/money_changing_request.ibd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/data/my_pay/registered_bank_account.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/my_pay/registered_bank_account.ibd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/data/my_pay/request_firmbanking.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/my_pay/request_firmbanking.ibd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/data/mysql.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/mysql.ibd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/data/undo_001" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/undo_001" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/data/undo_002" beforeDir="false" afterPath="$PROJECT_DIR$/db/data/undo_002" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +97,7 @@
     </option>
   </component>
   <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="origin/practice4" />
+    <option name="BRANCH" value="origin/practice5" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -176,7 +166,7 @@
     "WebServerToolWindowFactoryState": "false",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "practice5",
+    "git-widget-placeholder": "practice6",
     "jdk.selected.JAVA_MODULE": "11",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/seongjin/Desktop/oliver/programming/MSA-FastCampus/my-pay/logging-consumer",
@@ -410,6 +400,8 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/../.." />
     </ignored-roots>
+    <MESSAGE value="0831" />
+    <option name="LAST_COMMIT_MESSAGE" value="0831" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
