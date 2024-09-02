@@ -1022,3 +1022,21 @@ kafka-topic.sh --create
 2. http call 을 위한 기본 어댑터 구현, Port 인터페이스와 연동
 3. dummy Bank Server 구현
 4. API 를 통한 IPC 적용 테스트
+
+### kafka 를 활용한 마이페이 "충전" 서비스 고도화
+#### 충전 서비스의 목적과 비즈니스 고찰 해보기
+##### Async 패턴을 적용하는 결정의 기준에 있어서 하나의 큰 기준은...
+일단 들어온 요청에 대해서,, 무조건 해줘야 회사가 단기적, 장기적 이득 ??
+e.g. 회원 가입 하는 단계에서의 통신사 본인 인증, 1원 인증
+
+그렇다면 "충전" 서비스의 "충전" 이라는 비즈니스는??
+- 마이 머니는 마이 페이의 핵심 서비스 
+- 총전이란, 이 마이 머니를 충전해 달라는 고객의 의사 요청 받는 비즈니스
+  - **"어떻게든 수행해야하는 동작" -> 인프라 여건 확인 -> "Async"방식과 큐잉 사용 적절**
+    - **비즈니스적으로 비싼 요청인가?**
+
+### 충전 서비스 고도화 설계 (as-is)
+마이 머니 충전해주세요!!
+![Advanced_Charging_Service_ARCHI.png](images/Advanced_Charging_Service_ARCHI(as-is).png)
+![Advanced_Charging_Service_ARCHI.png](images/Advanced_Charging_Service_ARCHI(to-be).png)
+

@@ -1,15 +1,21 @@
 package com.mypay.money.application.service;
 
+import com.mypay.common.RechargingMoneyTask;
+import com.mypay.common.SubTask;
 import com.mypay.common.UseCase;
 import com.mypay.money.adapter.out.persistence.MemberMoneyJpaEntity;
 import com.mypay.money.adapter.out.persistence.MoneyChangingRequestMapper;
 import com.mypay.money.application.port.in.IncreaseMoneyRequestCommand;
 import com.mypay.money.application.port.in.IncreaseMoneyRequestUseCase;
+import com.mypay.money.application.port.out.GetMembershipPort;
 import com.mypay.money.application.port.out.IncreaseMoneyPort;
+import com.mypay.money.application.port.out.SendRechargingMoneyTaskPort;
 import com.mypay.money.domain.MemberMoney;
 import com.mypay.money.domain.MemberMoney.MembershipId;
 import com.mypay.money.domain.MoneyChangingRequest;
 import com.mypay.money.domain.MoneyChangingRequest.MoneyChangingStatus;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,6 +25,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class IncreaseMoneyRequestService implements IncreaseMoneyRequestUseCase {
 
+    private SendRechargingMoneyTaskPort sendRechargingMoneyTaskPort;
+    private final GetMembershipPort membershipPort;
     private final IncreaseMoneyPort increaseMoneyPort;
     private final MoneyChangingRequestMapper mapper;
 
@@ -28,6 +36,7 @@ public class IncreaseMoneyRequestService implements IncreaseMoneyRequestUseCase 
 
         // 머니의 충전, 증액이라는 과정
         // 1. 고객 정보가 정상인지 확인 (멤버)
+        membershipPort.getMembership(command.getTargetMembershipId());
 
         // 2. 고객의 연동된 계좌가 있는지, 고객의 연동된 계좌의 잔액이 충분한지도 확인 (뱅킹)
 
@@ -52,6 +61,60 @@ public class IncreaseMoneyRequestService implements IncreaseMoneyRequestUseCase 
                 new MoneyChangingRequest.Uuid(UUID.randomUUID())));
         }
         // 6-2. 결과가 실패라면, 실패라고 MoneyChangingRequest 상태값을 변동 후에 리턴
+        return null;
+    }
+
+    @Override
+    public MoneyChangingRequest increaseMoneyRequestAsync(IncreaseMoneyRequestCommand command) {
+
+        // Subtask
+        // 각 서비스에 특정 membershipId 로 Validation 을 하기 위한 Task.
+
+        // 1. Subtask, Task
+        SubTask validMemberTask = SubTask.builder()
+            .subTaskName("validMemberTask: " + "멤버십 유효성 검사")
+            .membershipID(command.getTargetMembershipId())
+            .taskType("membership")
+            .status("ready")
+            .build();
+
+        // Banking Sub task
+        // Banking Account Validation
+        SubTask validBankingAccountTask = SubTask.builder()
+            .subTaskName("validBankingAccountRask : " + "뱅킹 계좌 유효성 검사")
+            .membershipID(command.getTargetMembershipId())
+            .taskType("banking")
+            .status("ready")
+            .build();
+
+        // Amount Money Firmbanking --> 무조건 ok 받았다고 가정.
+
+        List<SubTask> subTaskList = new ArrayList<>();
+        subTaskList.add(validMemberTask);
+        subTaskList.add(validBankingAccountTask);
+
+        RechargingMoneyTask task = RechargingMoneyTask.builder()
+            .taskID(UUID.randomUUID().toString())
+            .taskName("Increase Money Task / 머니 충전 Task")
+            .subTaskList(subTaskList)
+            .moneyAmount(command.getAmount())
+            .membershipID(command.getTargetMembershipId())
+            .toBankName("mypay")
+            .build();
+
+        // 2. Kafka Cluster Produce
+        // Task Produce
+        sendRechargingMoneyTaskPort.sendRechargingMoneyTaskPort(task);
+
+        // 3. Wait
+
+        // 3-1. task-consumer
+        //  등록된 sub-task, status 모두 ok -> task 결과를 Produce
+
+        // 4. Task Result Consume
+
+        // 5. Consume ok, Logic
+
         return null;
     }
 }
