@@ -19,7 +19,7 @@ public class TaskProducer implements SendRechargingMoneyTaskPort {
     public TaskProducer(@Value("${kafka.clusters.bootstrapservers}") String bootstrapServers,
                         @Value("${task.topic}") String topic) {
         Properties props = new Properties();
-        props.put("bootstrap.server", bootstrapServers);
+        props.put("bootstrap.servers", bootstrapServers);
         props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
 

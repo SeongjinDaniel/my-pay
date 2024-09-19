@@ -1,5 +1,6 @@
 package com.mypay.money.application.service;
 
+import com.mypay.common.CountDownLatchManager;
 import com.mypay.common.RechargingMoneyTask;
 import com.mypay.common.SubTask;
 import com.mypay.common.UseCase;
@@ -10,10 +11,8 @@ import com.mypay.money.application.port.in.IncreaseMoneyRequestUseCase;
 import com.mypay.money.application.port.out.GetMembershipPort;
 import com.mypay.money.application.port.out.IncreaseMoneyPort;
 import com.mypay.money.application.port.out.SendRechargingMoneyTaskPort;
-import com.mypay.money.domain.MemberMoney;
 import com.mypay.money.domain.MemberMoney.MembershipId;
 import com.mypay.money.domain.MoneyChangingRequest;
-import com.mypay.money.domain.MoneyChangingRequest.MoneyChangingStatus;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -25,7 +24,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class IncreaseMoneyRequestService implements IncreaseMoneyRequestUseCase {
 
-    private SendRechargingMoneyTaskPort sendRechargingMoneyTaskPort;
+    private final CountDownLatchManager countDownLatchManager;
+    private final SendRechargingMoneyTaskPort sendRechargingMoneyTaskPort;
     private final GetMembershipPort membershipPort;
     private final IncreaseMoneyPort increaseMoneyPort;
     private final MoneyChangingRequestMapper mapper;
@@ -105,16 +105,41 @@ public class IncreaseMoneyRequestService implements IncreaseMoneyRequestUseCase 
         // 2. Kafka Cluster Produce
         // Task Produce
         sendRechargingMoneyTaskPort.sendRechargingMoneyTaskPort(task);
+        countDownLatchManager.addCountDownLatch(task.getTaskID());
 
         // 3. Wait
+        try {
+            countDownLatchManager.getCountDownLatch(task.getTaskID()).await();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
 
         // 3-1. task-consumer
         //  등록된 sub-task, status 모두 ok -> task 결과를 Produce
 
         // 4. Task Result Consume
+        // 받은 응답을 다시, countDownLatchManager 를 통해서 결과 데이터를 받아야 해요.
+        String result = countDownLatchManager.getDataForKey(task.getTaskID());
+        if (result.equals("success")) {
+            // 4-1. Consume ok, Logic
+            MemberMoneyJpaEntity memberMoneyJpaEntity = increaseMoneyPort.increaseMoney(
+                new MembershipId(command.getTargetMembershipId()),
+                command.getAmount());
+
+            if (memberMoneyJpaEntity != null) {
+                return mapper.mapToDomainEntity(increaseMoneyPort.createMoneyChangingRequest(
+                    new MoneyChangingRequest.TargetMembershipId(command.getTargetMembershipId()),
+                    new MoneyChangingRequest.MoneyChangingType(0),
+                    new MoneyChangingRequest.ChangingMoneyAmount(command.getAmount()),
+                    new MoneyChangingRequest.MoneyChangingStatus(1),
+                    new MoneyChangingRequest.Uuid(UUID.randomUUID())));
+            }
+        } else {
+            // 4-2. Consume fail, Logic
+            return null;
+        }
 
         // 5. Consume ok, Logic
-
         return null;
     }
 }
