@@ -1040,3 +1040,18 @@ e.g. 회원 가입 하는 단계에서의 통신사 본인 인증, 1원 인증
 ![Advanced_Charging_Service_ARCHI.png](images/Advanced_Charging_Service_ARCHI(as-is).png)
 ![Advanced_Charging_Service_ARCHI.png](images/Advanced_Charging_Service_ARCHI(to-be).png)
 
+### 송금 서비스 정의
+- "송금"이라는 비즈니스 과정 전체를 관리하고, 트랜잭션에 대한 책임을 가지는 서비스
+  - **중요하고 복잡한 "송금"이라는 비즈니스를 책임지는 서비스**
+  - **송금 과정 전체에 있어 트랜잭션 제공**
+    - **따라서 다음과 같이 HTTP 로 전송 가능한 바이트를 500MB 로 늘리는 법이다.**
+  - **송금 관련 기록에 대한 오너십이 있으며, 관련 데이터의 조회 서비스를 제공** 
+
+![REMITTANCE_ARCH.png](images/REMITTANCE_ARCH.png)
+
+### 머니 서비스 MVP 버전 정의하기
+#### Remittance Service (송금 서비스)
+- "송금"이라는 비즈니스 과정 전체를 관리하고, 트랜잭션에 대한 책임을 가지는 서비스
+
+#### Remittance Service MVP Version (송금 서비스, Minimal Viable Product)
+- 송금 요청을 받아 처리하고, 이 이력을 조회할 수 있는 서비스
